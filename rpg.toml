@@ -1,0 +1,19 @@
+name = 'Strifegame'
+
+modules = [
+   '@rpgjs/plugin-emotion-bubbles',
+   '@rpgjs/chat',
+   '@rpgjs/title-screen',
+    './main',
+    '@rpgjs/mobile-gui',
+    '@rpgjs/default-gui',
+    '@rpgjs/gamepad'
+]
+
+[titleScreen]
+    mongodb = "mongodb://localhost:27017/rpgjs"
+
+[start]
+    map = 'simplemap'
+    graphic = 'cloud'
+    hitbox = [16, 16]
