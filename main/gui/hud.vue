@@ -1,17 +1,22 @@
 <template>
-    <div class="health-bar">
-        <p>{{ hp }} / {{ maxHp }}</p>
-        <div class="bar">
-            <div class="inner-bar" :style="{ width }"></div>
+    <div class="pg-hud">
+        <h1>{{ name }}</h1>
+
+        <div class="health-bar">
+            <p>{{ hp }} / {{ maxHp }}</p>
+            <div class="bar">
+                <div class="inner-bar" :style="{ width }"></div>
+            </div>
+        </div>
+
+        <div class="health-bar">
+            <p>{{ mp }} / {{ maxMP }}</p>
+            <div class="bar">
+                <div class="inner-bar-mp" :style="{ widthMP }"></div>
+            </div>
         </div>
     </div>
 
-    <div class="health-bar">
-        <p style="color: #000">{{ mp }} / {{ maxMP }}</p>
-        <div class="bar">
-            <div class="inner-bar-mp" :style="{ widthMP }"></div>
-        </div>
-    </div>
 </template>
 
 <script>
@@ -20,6 +25,7 @@ export default {
     inject: ['rpgCurrentPlayer'],
     data() {
         return {
+            name: '',
             hp: 0,
             maxHp: 0,
             mp: 0, 
@@ -29,10 +35,11 @@ export default {
     mounted() {
         this.obsCurrentPlayer = this.rpgCurrentPlayer
             .subscribe(({ object }) => {
+                this.name = object.name
                 this.hp = object.hp
                 this.maxHp = object.param.maxHp
                 this.mp = object.sp
-                this.maxSP = object.param.maxSp
+                this.maxMP = object.param.maxSp
 
             })
     },
@@ -51,17 +58,38 @@ export default {
 </script>
 
 <style>
+@font-face {
+    font-family: 'SpaceMission';
+    src: url('./fonts/TechnoRaceItalic-eZRWe.otf') format('opentype'); 
+}
+.pg-hud {
+    position: absolute; 
+    width: 200px; 
+    height: auto;
+    bottom: 25px; 
+    right: 25px; 
+    background: #000;
+    padding: 15px;
+    opacity: 0.8;
+    font-family: 'SpaceMission';
+    border: 5px solid #fff;
+    color: white;
+}
+
+h1 {
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+    color: white;
+}
 .health-bar {
-    width: 200px;
+    width: 100%;
     margin-top: 10px;
-    margin-left: 10px;
-    background: rgba(0, 0, 0, 0.3)
 }
 
 .health-bar p {
+    font-size: 15px;
     margin: 5px;
-    color: #000;
-    font-size: 21px;
     font-weight: bold;
 }
 
