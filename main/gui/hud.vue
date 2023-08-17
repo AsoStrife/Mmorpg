@@ -5,6 +5,13 @@
             <div class="inner-bar" :style="{ width }"></div>
         </div>
     </div>
+
+    <div class="health-bar">
+        <p style="color: #000">{{ mp }} / {{ maxMP }}</p>
+        <div class="bar">
+            <div class="inner-bar-mp" :style="{ widthMP }"></div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -14,7 +21,9 @@ export default {
     data() {
         return {
             hp: 0,
-            maxHp: 0
+            maxHp: 0,
+            mp: 0, 
+            maxMP: 0
         }
     },
     mounted() {
@@ -22,11 +31,17 @@ export default {
             .subscribe(({ object }) => {
                 this.hp = object.hp
                 this.maxHp = object.param.maxHp
+                this.mp = object.sp
+                this.maxSP = object.param.maxSp
+
             })
     },
     computed: {
         width() {
             return ((this.hp / this.maxHp) * 100) + '%'
+        },
+        widthMP() {
+            return ((this.mp / this.maxMP) * 100) + '%'
         }
     },
     unmounted() {
@@ -45,7 +60,7 @@ export default {
 
 .health-bar p {
     margin: 5px;
-    color: white;
+    color: #000;
     font-size: 21px;
     font-weight: bold;
 }
@@ -58,6 +73,13 @@ export default {
 
 .inner-bar {
     background: #c54;
+    height: 10px;
+    position: relative;
+    transition: width .5s linear;
+}
+
+.inner-bar-mp {
+    background: rgb(68, 88, 204);
     height: 10px;
     position: relative;
     transition: width .5s linear;
