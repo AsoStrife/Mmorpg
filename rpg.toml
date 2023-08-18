@@ -22,10 +22,31 @@ spritesheetDirectories= [
     hitbox = [32, 32]
 
 
+[inputs.up]
+    name = "up"
+    repeat = true
+    bind = ["w"]
+
+[inputs.down]
+    name = "down"
+    repeat = true
+    bind = ["s"]
+
+
+[inputs.right]
+    name = "right"
+    repeat = true
+    bind = ["d"]
+
+[inputs.left]
+    name = "left"
+    repeat = true
+    bind = ["a"]
+
 [inputs.attack]
     name = "attack"
     repeat = true
-    bind = "j"
+    bind = "space"
     delay = { duration = 200 }
 
 [inputs.skill]
@@ -33,3 +54,8 @@ spritesheetDirectories= [
     repeat = true
     bind = "k"
     delay = { duration = 200 }
+
+[inputs.one]
+    name = "potion"
+    repeat = false
+    bind = "1"

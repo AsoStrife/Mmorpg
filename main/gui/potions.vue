@@ -1,5 +1,5 @@
 <template>
-    <div class="items-container">
+    <div class="items-container" @keydown="handleShortcut">
         <div :class="['items-hud icon', setIconClass(item)]" v-for="item in items" v-bind:key="item" @click="usePotion">
             <div class="item-quantity">{{ item.nb}}</div>    
             <div class="item-name">{{ item.item.name}}</div>    
@@ -24,15 +24,23 @@ export default {
         }
     },
     mounted() {
-        
+
         this.obsCurrentPlayer = this.rpgCurrentPlayer
             .subscribe(( { object } ) => {
                 
                 this.items = Object.values(object.items || [])
 
-                // this.pozioni = object.getItem(Pozione)?.nb
-                // this.granpozioni = object.getItem(Granpozione)?.nb
             })
+
+        this.obsKeyPress = this.rpgKeypress.subscribe(({ control }) => {
+            if (!control) return
+
+            if (control.actionName == "one") {
+                this.usePotion()
+            }
+            
+            console.log(control)
+        })
     },
     unmounted() {
         this.obsCurrentPlayer.unsubscribe()
@@ -56,7 +64,8 @@ export default {
                     return 'potion'
             }
         },
-        usePotion(player: RpgPlayer) {
+        usePotion() {
+            
             this.rpgSocket().emit('gui.interaction', {
                 guiId: 'potions',
                 name: 'useItem',
@@ -64,6 +73,12 @@ export default {
             })
             
             // plaayer.useItem('96ab6ba0-3c7b-11ee-be56-0242ac120002')
+        },
+        handleShortcut(event : any) {
+            console.log("click")
+            if (event.keyCode === 49) {
+                this.usePotion()
+            }
         }
     }
 }
