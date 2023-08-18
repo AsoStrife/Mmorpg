@@ -5,7 +5,9 @@ import { Item } from '@rpgjs/database'
     name: 'Granpozione',
     description: 'Ricarica 500 HP',
     price: 500,
-    hpValue: 500
+    hpValue: 500,
+    hitRate: 1,
+    consumable: true
 })
 
 export default class Granpozione { }
