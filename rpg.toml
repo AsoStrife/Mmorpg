@@ -1,13 +1,17 @@
 name = 'Strifegame'
 
 modules = [
-   '@rpgjs/plugin-emotion-bubbles',
-   '@rpgjs/chat',
-   '@rpgjs/title-screen',
     './main',
+    '@rpgjs/plugin-emotion-bubbles',
+    '@rpgjs/chat',
+    '@rpgjs/title-screen',
     '@rpgjs/mobile-gui',
     '@rpgjs/default-gui',
     '@rpgjs/gamepad'
+]
+
+spritesheetDirectories= [
+    'lpc-sprites'
 ]
 
 [titleScreen]
@@ -15,5 +19,17 @@ modules = [
 
 [start]
     map = 'simplemap'
-    graphic = 'cloud'
-    hitbox = [16, 16]
+    hitbox = [32, 32]
+
+
+[inputs.attack]
+    name = "attack"
+    repeat = true
+    bind = "j"
+    delay = { duration = 200 }
+
+[inputs.skill]
+    name = "skill"
+    repeat = true
+    bind = "k"
+    delay = { duration = 200 }

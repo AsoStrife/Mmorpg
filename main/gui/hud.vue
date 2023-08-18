@@ -1,115 +1,41 @@
 <template>
-    <div class="pg-hud">
-        <h1>{{ name }}</h1>
-
-        <div class="health-bar">
-            <p>{{ hp }} / {{ maxHp }}</p>
-            <div class="bar">
-                <div class="inner-bar" :style="{ width }"></div>
-            </div>
-        </div>
-
-        <div class="health-bar">
-            <p>{{ mp }} / {{ maxMP }}</p>
-            <div class="bar">
-                <div class="inner-bar-mp" :style="{ widthMP }"></div>
-            </div>
-        </div>
+    <div class="hud">
+        <life></life>
+        <potions></potions>
     </div>
 
 </template>
 
 <script>
-export default {
-    name: 'my-hud',
-    inject: ['rpgCurrentPlayer'],
-    data() {
-        return {
-            name: '',
-            hp: 0,
-            maxHp: 0,
-            mp: 0, 
-            maxMP: 0
-        }
-    },
-    mounted() {
-        this.obsCurrentPlayer = this.rpgCurrentPlayer
-            .subscribe(({ object }) => {
-                this.name = object.name
-                this.hp = object.hp
-                this.maxHp = object.param.maxHp
-                this.mp = object.sp
-                this.maxMP = object.param.maxSp
+import life from './life.vue'
+import potions from './potions.vue'
+import skills from './skills.vue'
 
-            })
-    },
-    computed: {
-        width() {
-            return ((this.hp / this.maxHp) * 100) + '%'
-        },
-        widthMP() {
-            return ((this.mp / this.maxMP) * 100) + '%'
-        }
-    },
-    unmounted() {
-        this.obsCurrentPlayer.unsubscribe()
+export default {
+    name: 'hud',
+    data() {
     }
 }
 </script>
 
-<style>
+<style scoped>
 @font-face {
     font-family: 'SpaceMission';
     src: url('./fonts/TechnoRaceItalic-eZRWe.otf') format('opentype'); 
 }
-.pg-hud {
+.hud {
     position: absolute; 
-    width: 200px; 
-    height: auto;
-    bottom: 25px; 
-    right: 25px; 
-    background: #000;
-    padding: 15px;
-    opacity: 0.8;
+    width: 100%; 
+    height: 60px;
+    bottom: 0px; 
+    left: 0px; 
+    background: rgb(15, 4, 167);
+    background-image: url('./imgs/hud.jpg');
+    background-repeat: repeat;
+    background-size: contain;
+    opacity: 0.9;
     font-family: 'SpaceMission';
-    border: 5px solid #fff;
+    border: 2px solid #fff;
     color: white;
-}
-
-h1 {
-    font-size: 20px;
-    padding: 0;
-    margin: 0;
-    color: white;
-}
-.health-bar {
-    width: 100%;
-    margin-top: 10px;
-}
-
-.health-bar p {
-    font-size: 15px;
-    margin: 5px;
-    font-weight: bold;
-}
-
-.bar {
-    border: 2px solid black;
-    border-radius: 5px;
-    position: relative;
-}
-
-.inner-bar {
-    background: #c54;
-    height: 10px;
-    position: relative;
-    transition: width .5s linear;
-}
-
-.inner-bar-mp {
-    background: rgb(68, 88, 204);
-    height: 10px;
-    position: relative;
-    transition: width .5s linear;
 }
 </style>

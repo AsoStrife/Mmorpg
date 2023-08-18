@@ -5,7 +5,7 @@ import { Item } from '@rpgjs/database'
     name: 'Etere',
     description: 'Ricarica 50 MP',
     price: 500,
-    mpValue: 50
+    spValue: 50
 })
 
 export default class Etere { }
