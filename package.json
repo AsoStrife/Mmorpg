@@ -1,7 +1,8 @@
 {
     "name": "my-game",
     "scripts": {
-        "build": "rpgjs build",
+        "build-dev": "rpgjs build",
+        "build-production": "cross-env NODE_ENV=production rpgjs build",
         "dev": "rpgjs dev",
         "start": "node dist/server/main.mjs"
     },

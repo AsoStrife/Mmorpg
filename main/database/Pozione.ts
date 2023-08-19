@@ -1,5 +1,6 @@
 import { Item } from '@rpgjs/database'
 import { RpgPlayer } from '@rpgjs/server'
+
 @Item({
     id: '96ab6ba0-3c7b-11ee-be56-0242ac120002',
     name: 'Pozione',

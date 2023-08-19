@@ -38,8 +38,7 @@ export default {
             if (control.actionName == "one") {
                 this.usePotion()
             }
-            
-            console.log(control)
+        
         })
     },
     unmounted() {
@@ -57,9 +56,6 @@ export default {
                 case '8a02eea8-c9f3-4915-b105-f2bee51b884a': 
                     return 'ether'
                 break
-                // case 'ca4dbc23-449d-48f3-a7f6-dec7888dd5d9': 
-                //     return 'turbo-ether'
-                // break
                 default:
                     return 'potion'
             }
@@ -75,7 +71,6 @@ export default {
             // plaayer.useItem('96ab6ba0-3c7b-11ee-be56-0242ac120002')
         },
         handleShortcut(event : any) {
-            console.log("click")
             if (event.keyCode === 49) {
                 this.usePotion()
             }

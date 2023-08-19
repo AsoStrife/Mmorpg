@@ -16,7 +16,6 @@ export default class HealerEvent extends RpgEvent {
     }
     async onAction(player: RpgPlayer) {
         player.useItem('96ab6ba0-3c7b-11ee-be56-0242ac120002')
-
         // player.callShop([Pozione, Granpozione])
     }
 } 
