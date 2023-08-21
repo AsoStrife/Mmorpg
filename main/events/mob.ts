@@ -20,8 +20,11 @@ export default class Mob extends RpgEvent {
         this.recovery({ hp: 1 });
 
         this.setComponentsTop([
-            Components.hpBar(),
-        ]);
+            Components.hpBar({}, '{name}')
+        ], {
+            marginBottom: -10
+        }
+        );
 
         this.paramsModifier = {
             [Presets.ATK]: {
@@ -29,8 +32,8 @@ export default class Mob extends RpgEvent {
             }
         }
 
-        this.setGraphic('cloud');
-        this.speed = Speed.Slow;
+        this.setGraphic(['nenno'])
+        this.speed = Speed.Slow
         this.infiniteMoveRoute([
             Move.tileRandom()
         ])

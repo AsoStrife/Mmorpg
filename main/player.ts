@@ -1,7 +1,7 @@
 import { RpgPlayer, RpgPlayerHooks, Control, Components } from '@rpgjs/server'
 
-const graphics = ['pale-green-body', 'pale-green-head', 'pale-green-wings', 'pale-green-wings-fg', 'dark-grey-coat', 'boots-black', 'hood-black']
-
+// const graphics = ['pale-green-body', 'pale-green-head', 'pale-green-wings', 'pale-green-wings-fg', 'dark-grey-coat', 'boots-black', 'hood-black']
+const graphics = ['aso']
 const player: RpgPlayerHooks = {
     onConnected(player: RpgPlayer) {
         player.name = ''
@@ -14,11 +14,24 @@ const player: RpgPlayerHooks = {
         }
 
         if (input === Control.Attack) {
-            player.showAnimation(graphics, 'attack', true);
+            player.showAnimation(graphics, 'attack', true)
+
+            const otherPlayers = player.otherPlayersCollision
+            
+            for (let otherPlayer of otherPlayers) {
+                if(otherPlayer.type == 'event'){
+                    otherPlayer.hp -= 10
+                    if (otherPlayer.hp <= 0) {
+                        const map = player.getCurrentMap()
+                        map.removeEvent(otherPlayer.id)
+                    }
+                }
+            }
+
         }
 
         if (input === Control.Skill) {
-            player.showAnimation(graphics, 'skill', true);
+            player.showAnimation(graphics, 'skill', true)
         }
 
         const gui = player.gui('potions')
