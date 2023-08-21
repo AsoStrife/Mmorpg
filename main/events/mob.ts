@@ -2,13 +2,13 @@ import { Components, EventData, Move, Presets, RpgEvent, Speed } from '@rpgjs/se
 
 // @ts-ignore
 @EventData({
-    name: 'flying-eye',
+    name: 'Mob',
     hitbox: {
         width: 32,
         height: 48
     }
 })
-export default class FlyingEye extends RpgEvent {
+export default class Mob extends RpgEvent {
     onInit() {
         this.through = false;
         this.throughOtherPlayer = false;
@@ -29,7 +29,7 @@ export default class FlyingEye extends RpgEvent {
             }
         }
 
-        this.setGraphic('flying-eye');
+        this.setGraphic('cloud');
         this.speed = Speed.Slow;
         this.infiniteMoveRoute([
             Move.tileRandom()

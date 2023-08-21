@@ -3,7 +3,7 @@ name = 'Strifegame'
 modules = [
     './main',
     '@rpgjs/plugin-emotion-bubbles',
-    '@rpgjs/chat',
+    #'@rpgjs/chat',
     '@rpgjs/title-screen',
     '@rpgjs/mobile-gui',
     '@rpgjs/default-gui',
