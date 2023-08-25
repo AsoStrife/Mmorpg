@@ -46,13 +46,7 @@ const player: RpgPlayerHooks = {
 
     },
     async onJoinMap(player: RpgPlayer) {
-        // await player.showText('And, please, support the project on github https://github.com/RSamaium/RPG-JS ! :)')
-        player.gui('hud').open()
-        // player.gui('skills').open()
-
-    },
-    async prova(player: RpgPlayer){
-
+        player.gui('hud-2').open()
     }
 }
 

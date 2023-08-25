@@ -15,7 +15,8 @@ export default class HealerEvent extends RpgEvent {
         this.setGraphic('female')
     }
     async onAction(player: RpgPlayer) {
-        player.useItem('96ab6ba0-3c7b-11ee-be56-0242ac120002')
+        // player.useItem('96ab6ba0-3c7b-11ee-be56-0242ac120002')
+        player.showAnimation('animation', 'default')
         // player.callShop([Pozione, Granpozione])
     }
 } 

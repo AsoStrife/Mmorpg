@@ -35,9 +35,9 @@ export default {
         this.obsKeyPress = this.rpgKeypress.subscribe(({ control }) => {
             if (!control) return
 
-            if (control.actionName == "one") {
-                this.usePotion()
-            }
+            // if (control.actionName == "one") {
+            //     this.usePotion()
+            // }
         
         })
     },
@@ -71,9 +71,9 @@ export default {
             // plaayer.useItem('96ab6ba0-3c7b-11ee-be56-0242ac120002')
         },
         handleShortcut(event : any) {
-            if (event.keyCode === 49) {
-                this.usePotion()
-            }
+            // if (event.keyCode === 49) {
+            //     this.usePotion()
+            // }
         }
     }
 }

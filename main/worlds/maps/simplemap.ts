@@ -16,6 +16,6 @@ class TownMap extends RpgMap {
     
     // When the player leaves the map
     onLeave(player: RpgPlayer) {}
-
+    
 
 }

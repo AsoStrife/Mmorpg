@@ -4,7 +4,7 @@ modules = [
     './main',
     '@rpgjs/plugin-emotion-bubbles',
     #'@rpgjs/chat',
-    '@rpgjs/title-screen',
+    #'@rpgjs/title-screen',
     '@rpgjs/mobile-gui',
     '@rpgjs/default-gui',
     '@rpgjs/gamepad'
@@ -25,23 +25,23 @@ spritesheetDirectories= [
 [inputs.up]
     name = "up"
     repeat = true
-    bind = ["w"]
+    bind = ["up", "w"]
 
 [inputs.down]
     name = "down"
     repeat = true
-    bind = ["s"]
+    bind = ["down", "s"]
 
 
 [inputs.right]
     name = "right"
     repeat = true
-    bind = ["d"]
+    bind = ["right", "d"]
 
 [inputs.left]
     name = "left"
     repeat = true
-    bind = ["a"]
+    bind = ["left", "a"]
 
 [inputs.attack]
     name = "attack"
