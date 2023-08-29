@@ -54,8 +54,3 @@ spritesheetDirectories= [
     repeat = true
     bind = "k"
     delay = { duration = 200 }
-
-[inputs.one]
-    name = "potion"
-    repeat = false
-    bind = "1"

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <tileset version="1.8" tiledversion="1.8.2" name="[A]Wall-Up_pipo" tilewidth="32" tileheight="32" tilecount="96" columns="8">
-  <image source="img/[A]Wall-Up_pipo.png" width="256" height="384"/>
+  <image source="[A]Wall-Up_pipo.png" width="256" height="384"/>
   <wangsets>
     <wangset name="Autotile" type="mixed" tile="0">
       <wangcolor color="#B2711B" tile="0" probability="1"/>
