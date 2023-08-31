@@ -1,0 +1,22 @@
+{
+  "name": "@rpgjs/title-screen",
+  "version": "4.0.0-rc.9",
+  "description": "",
+  "main": "src/index.ts",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Samuel Ronce",
+  "license": "MIT",
+  "dependencies": {
+    "@rpgjs/client": "^4.0.0-rc.9",
+    "@rpgjs/server": "^4.0.0-rc.9",
+    "axios": "^1.4.0",
+    "body-parser": "^1.20.2",
+    "mongoose": "^7.4.3",
+    "mongoose-bcrypt": "^1.10.1"
+  },
+  "gitHead": "addc2430ef6ea580265c59fcc22948393e91b1bf"
+}

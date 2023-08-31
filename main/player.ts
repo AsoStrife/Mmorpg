@@ -4,7 +4,7 @@ import { RpgPlayer, RpgPlayerHooks, Control, Components } from '@rpgjs/server'
 const graphics = ['aso']
 const player: RpgPlayerHooks = {
     onConnected(player: RpgPlayer) {
-        player.name = ''
+        player.name = 'AsoStrife'
         player.setComponentsTop(Components.text('{name}'))
         player.setGraphic(graphics)
     },
