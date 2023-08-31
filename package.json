@@ -10,21 +10,21 @@
         "node": ">=14"
     },
     "dependencies": {
-        "@rpgjs/chat": "^4.0.0-rc.10",
-        "@rpgjs/client": "4.0.0-rc.10",
-        "@rpgjs/default-gui": "^4.0.0-rc.10",
-        "@rpgjs/gamepad": "^4.0.0-rc.10",
-        "@rpgjs/plugin-emotion-bubbles": "^4.0.0-rc.10",
-        "@rpgjs/server": "4.0.0-rc.10",
-        "@rpgjs/standalone": "4.0.0-rc.10",
-        "@rpgjs/title-screen": "^4.0.0-rc.10",
-        "@rpgjs/types": "4.0.0-rc.10",
+        "@rpgjs/chat": "^4.0.0-rc.11",
+        "@rpgjs/client": "4.0.0-rc.11",
+        "@rpgjs/default-gui": "^4.0.0-rc.11",
+        "@rpgjs/gamepad": "^4.0.0-rc.11",
+        "@rpgjs/plugin-emotion-bubbles": "^4.0.0-rc.11",
+        "@rpgjs/server": "4.0.0-rc.11",
+        "@rpgjs/standalone": "4.0.0-rc.11",
+        "@rpgjs/title-screen": "^4.0.0-rc.11",
+        "@rpgjs/types": "4.0.0-rc.11",
         "sat": "^0.9.0",
         "socket.io-client": "4.7.2",
         "uuid": "^9.0.0"
     },
     "devDependencies": {
-        "@rpgjs/compiler": "4.0.0-rc.10",
+        "@rpgjs/compiler": "4.0.0-rc.11",
         "cross-env": "^7.0.3",
         "typescript": "5.1.6"
     }
