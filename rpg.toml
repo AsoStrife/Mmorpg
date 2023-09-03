@@ -1,13 +1,14 @@
 name = 'Strifegame'
 
 modules = [
-    './main',
     '@rpgjs/plugin-emotion-bubbles',
     '@rpgjs/chat',
     './title-screen',
     '@rpgjs/mobile-gui',
+    './mobile',
     '@rpgjs/default-gui',
-    '@rpgjs/gamepad'
+    '@rpgjs/gamepad',
+    './main',
 ]
 
 spritesheetDirectories= [

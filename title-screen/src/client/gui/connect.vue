@@ -2,7 +2,7 @@
     <rpg-window width="300px" position="bottom-middle" v-if="page == 'login'">
         <p>Connect to server with your account</p>
         <form @submit.prevent="login">
-            <input type="text" placeholder="Nickname" v-model="user.nickname">
+            <input type="text" placeholder="Username" v-model="user.nickname">
             <button class="btn-success login">Login</button>
         </form>
     </rpg-window>
@@ -18,7 +18,15 @@ export default {
     data() {
         return {
             page: 'login',
-            user: {}
+            choices: [ 
+                { text: 'One', value: 1 }, 
+                { text: 'Two', value: 2 } 
+            ],
+            user: {
+                nickname: '',
+                sex: ''
+            }
+
         }
     },
     mounted() {
@@ -73,6 +81,13 @@ button {
 
 input {
     width: 85%;
+}
+
+select {
+    width: 85%;
+    height: 30px;
+    padding: 0; 
+    margin: 0;
 }
 
 .login {

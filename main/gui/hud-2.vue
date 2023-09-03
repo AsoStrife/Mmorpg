@@ -18,6 +18,9 @@ import name from './name.vue'
 export default {
     name: 'hud-2',
     data() {
+        return {
+            
+        }
     }
 }
 </script>

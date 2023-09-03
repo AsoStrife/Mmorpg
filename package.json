@@ -13,6 +13,7 @@
         "@rpgjs/chat": "^4.0.0-rc.11",
         "@rpgjs/client": "4.0.0-rc.11",
         "@rpgjs/default-gui": "^4.0.0-rc.11",
+        "@rpgjs/mobile-gui": "^4.0.0-rc.11",
         "@rpgjs/gamepad": "^4.0.0-rc.11",
         "@rpgjs/plugin-emotion-bubbles": "^4.0.0-rc.11",
         "@rpgjs/server": "4.0.0-rc.11",

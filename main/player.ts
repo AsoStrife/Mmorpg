@@ -1,8 +1,11 @@
 import { RpgPlayer, RpgPlayerHooks, Control, Components } from '@rpgjs/server'
 
 // const graphics = ['pale-green-body', 'pale-green-head', 'pale-green-wings', 'pale-green-wings-fg', 'dark-grey-coat', 'boots-black', 'hood-black']
-const graphics = ['aso']
+const graphics = ['nenno']
 const player: RpgPlayerHooks = {
+    props: {
+        graphics: String
+    },
     onConnected(player: RpgPlayer) {
         player.name = 'AsoStrife'
         player.setComponentsTop(Components.text('{name}'))
@@ -10,7 +13,10 @@ const player: RpgPlayerHooks = {
     },
     onInput(player: RpgPlayer, { input }) {
         if (input == Control.Back) {
-            player.callMainMenu()
+            // player.callMainMenu()
+
+            
+            player.gui('sprite').open()
         }
 
         if (input === Control.Attack) {

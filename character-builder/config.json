@@ -1,0 +1,16 @@
+{
+    "namespace": "CharacterBuilder",
+    "server": {
+        "type": "object",
+        "properties": {
+        },
+        "required":[]
+    },
+    "client": {
+        "type": "object",
+        "properties": {
+            }
+        }
+    },
+    "*": {}
+}
