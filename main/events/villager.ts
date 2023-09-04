@@ -34,12 +34,14 @@ export default class VillagerEvent extends RpgEvent {
 
         player.gold += 10000
         
-        player.hp = 100
+        // player.hp = 100
 
         player.addItem('96ab6ba0-3c7b-11ee-be56-0242ac120002', 10) // Pozione
         player.addItem('8a02eea8-c9f3-4915-b105-f2bee51b884a', 50) // Etere
 
-        player.name = 'AsoStrife22'
-        player.setGraphic(['nenna'])
+        player.callShop([Pozione])
+
+        // player.name = 'AsoStrife22'
+        // player.setGraphic(['nenna'])
     }
 } 

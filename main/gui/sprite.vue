@@ -1,10 +1,16 @@
 <template>
-    <div class="main-window" style="z-index: 150; height: 100%;">
-            asd
-            <rpg-choice :choices="choices" @selected="selected"></rpg-choice>
-            <!-- <div class="box" v-if="spritesheets">
-                <div v-for="sprite in spritesheets" v-bind:key="sprite" class="spritesheet-preview" :style="spritesheet(sprite)"></div>
-            </div> -->
+    <div class="main-window">
+        <div style="width: 20%; height: 100%;  border:1px solid #FFF; float: left; color: white;">
+            <rpg-choice :choices="choices" :active="isCategoryActive"  @selected="changeCategory"></rpg-choice>
+        </div>
+
+        <div style="width: 20%; height: 100%;  border:1px solid #FFF; float: left; color: white; margin-left: 1%;">
+            <rpg-choice :choices="choices_2" :active="false"></rpg-choice>
+        </div>
+
+        <div style="width: 55%; height: 100%; border:1px solid #FFF; float: right; margin-left: 1%;">
+            <div v-for="sprite in spritesheets" v-bind:key="sprite" class="spritesheet-preview" :style="spritesheet(sprite)"></div>
+        </div> 
     </div>
 </template>
 
@@ -18,13 +24,65 @@ export default {
     data() {
         return {
             spritesheets: [] as string[],
+            isCategoryActive: true,
             choices: [ 
-                { text: 'One', value: 1 }, 
-                { text: 'Two', value: 2 } 
-            ]
+                { 
+                    text: 'Sex', 
+                    value: 1,
+                    sub: [
+                        {
+                            text: "Male", 
+                            value: "m"
+                        },
+                        {
+                            text: "Female", 
+                            value: "m"
+                        }
+                    ]
+                }, 
+                { 
+                    text: 'Body', 
+                    value: 2,
+                    sub: [
+                        {
+                            text: "Body A", 
+                            value: "ba"
+                        },
+                        {
+                            text: "Body B", 
+                            value: "bb"
+                        },
+                        {
+                            text: "Body C", 
+                            value: "bc"
+                        }
+                    ]
+                },
+                { text: 'Hair', value: 3 },
+                { text: 'Shirt', value: 4 },
+                { text: 'Legs', value: 5 },
+                { text: 'Weapon', value: 6 }
+            ],
+            choices_2 : []
         }
     },
     methods: {
+        changeCategory(index) {
+            const mode = this.choices[index].value
+
+            console.log(mode)
+            this.isCategoryActive = false
+
+            this.choices_2 = this.choices[index].sub
+            // if (mode == 'cancel') {
+            //     this.close()
+            //     return
+            // }
+            // this.menuActive = false
+            // this.mode = mode
+            // this.selected(0)
+
+        },
         mapSpritesheets(graphics: string[]): string[] {
             return graphics.map(
                 graphic => this.rpgResource.spritesheets.get(graphic + '')?.image
@@ -86,21 +144,29 @@ export default {
 
 <style lang="scss">
 .main-window {
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 95%;
+    height: 93%;
     z-index: 150;
-    background-color: $window-background;
-    border: $window-border;
-    border-radius: $window-border-radius;
+    background-color: #07111c;
+    border: 3px solid #6394ad;
+    opacity: 0.9;
+    padding: 2%;
 }
 
 .spritesheet-preview {
-    border: 1px solid #000;
-    position: absolute;
-    top: 0;
-    left: 0;
+    // border: 1px solid #6394ad;
+    
+    background-position: 0px 64px;
+    
     width: 64px;
     height: 64px;
-    background-position: 0px 64px;
+    position: relative;
+    left: 45%;
+    top: 25%;
+    transform: scale(5);
 }
 </style>
