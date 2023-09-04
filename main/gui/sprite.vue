@@ -1,11 +1,11 @@
 <template>
     <div class="main-window">
         <div style="width: 20%; height: 100%;  border:1px solid #FFF; float: left; color: white;">
-            <rpg-choice :choices="choices" :active="isCategoryActive"  @selected="changeCategory"></rpg-choice>
+            <rpg-choice :choices="choices" :active="isCategoryActive" @selected="changeCategory"></rpg-choice>
         </div>
 
         <div style="width: 20%; height: 100%;  border:1px solid #FFF; float: left; color: white; margin-left: 1%;">
-            <rpg-choice :choices="choices_2" :active="false"></rpg-choice>
+            <rpg-choice :choices="choices_2" :active="!isCategoryActive" @selected="changeItem"></rpg-choice>
         </div>
 
         <div style="width: 55%; height: 100%; border:1px solid #FFF; float: right; margin-left: 1%;">
@@ -25,6 +25,7 @@ export default {
         return {
             spritesheets: [] as string[],
             isCategoryActive: true,
+            categoryIndex: 1,
             choices: [ 
                 { 
                     text: 'Sex', 
@@ -36,7 +37,7 @@ export default {
                         },
                         {
                             text: "Female", 
-                            value: "m"
+                            value: "f"
                         }
                     ]
                 }, 
@@ -68,20 +69,14 @@ export default {
     },
     methods: {
         changeCategory(index) {
-            const mode = this.choices[index].value
-
-            console.log(mode)
+            this.categoryIndex = index
             this.isCategoryActive = false
-
+            // Load second choices
             this.choices_2 = this.choices[index].sub
-            // if (mode == 'cancel') {
-            //     this.close()
-            //     return
-            // }
-            // this.menuActive = false
-            // this.mode = mode
-            // this.selected(0)
-
+        },
+        changeItem(index) {
+            // TODO change item based on category index (this.categoryIndex)
+            
         },
         mapSpritesheets(graphics: string[]): string[] {
             return graphics.map(
@@ -130,7 +125,12 @@ export default {
             const name = control.actionName
             
             if (name == Control.Back) {
-                this.close()
+                if(this.isCategoryActive)
+                    this.close()
+                else{
+                    this.isCategoryActive = !this.isCategoryActive
+                    this.choices_2 = []
+                }
             }
             
         })
