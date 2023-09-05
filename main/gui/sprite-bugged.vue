@@ -8,14 +8,16 @@
             <rpg-choice :choices="choices_2" :active="!isCategoryActive" @selected="changeItem"></rpg-choice>
         </div>
 
-        <div style="spritesheet-container">
-            <div v-for="sprite in spritesheets" v-bind:key="sprite" class="spritesheet-preview" :style="spritesheet(sprite)"></div>
+        <div style="width: 55%; height: 100%; border:1px solid #FFF; float: right; margin-left: 1%;">
+            <div v-for="sprite in spritesheets" v-bind:key="sprite" class="spritesheet-preview" style="color: white;">
+            asd
+            </div>
         </div> 
     </div>
 </template>
 
 <script lang="ts">
-import { LayoutObject } from '@rpgjs/types';
+import { LayoutObject } from '@rpgjs/types'
 import { Control } from '@rpgjs/client'
 
 export default {
@@ -23,7 +25,7 @@ export default {
     inject: ['rpgEngine', 'rpgStage', 'rpgKeypress', 'rpgGuiClose', 'rpgCurrentPlayer', 'rpgResource', 'rpgGui', 'rpgGuiInteraction'],
     data() {
         return {
-            graphics: [] as string[],
+            graphics: [], 
             spritesheets: [] as string[],
             isCategoryActive: true,
             categoryIndex: 1,
@@ -115,11 +117,11 @@ export default {
         },
         changeItem(index) {
             // TODO change item based on category index (this.categoryIndex)
-            
+            console.log(this.choices_2[index].value)    
         },
         mapSpritesheets(graphics: string[]): string[] {
             return graphics.map(
-                graphic => this.rpgResource.spritesheets.get(graphic + '')?.image
+                graphic => this.rpgResource.spritesheets.get(graphic)?.image
             ).filter(sprite => !!sprite);
         },
         mapGraphics(layout: LayoutObject<any>): string[] {
@@ -146,6 +148,9 @@ export default {
         }
     },
     mounted() {
+        
+
+
         if (this.rpgGui.exists('rpg-controls')) 
             this.rpgGui.hide('rpg-controls') 
         
@@ -156,7 +161,11 @@ export default {
                 if (!obj || !obj.object) 
                     return
 
+                this.graphics = this.mapGraphics(obj.object.layout)
                 this.spritesheets = this.mapSpritesheets(this.mapGraphics(obj.object.layout))
+
+                console.log(this.graphics)
+                console.log(this.spritesheets)
             })
             
             this.obsKeyPress = this.rpgKeypress.subscribe(({ control }) => {
@@ -196,27 +205,16 @@ export default {
     padding: 2%;
 }
 
-.spritesheet-container {
-//   position: relative;
-//   width: 300px;
-//   height: 300px; 
-  width: 55%; 
-  height: 100%; 
-  border:1px solid #FFF; 
-  float: right; 
-  margin-left: 1%;
-}
-
 .spritesheet-preview {
-  position: absolute;
-  width: 64px;
+    // border: 1px solid #6394ad;
+    
+    background-position: 0px 64px;
+    
+    width: 64px;
     height: 64px;
-  left: 45%;
+    position: relative;
+    left: 45%;
     top: 25%;
-  background-position: 0px 64px;
-  
-  transform: scale(5);
+    transform: scale(5);
 }
-
-
 </style>

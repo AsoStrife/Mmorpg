@@ -1,13 +1,14 @@
 import { RpgPlayer, RpgPlayerHooks, Control, Components } from '@rpgjs/server'
 
 // const graphics = ['pale-green-body', 'pale-green-head', 'pale-green-wings', 'pale-green-wings-fg', 'dark-grey-coat', 'boots-black', 'hood-black']
-const graphics = ['nenno']
+const graphics = ['PLAYER_BODY_male', 'PLAYER_HAIR_afro', 'PLAYER_SHIRT_red', 'PLAYER_LEGS_purple', 'PLAYER_WEAPON_blue']
+// const graphics = ['PLAYER_HAIR_afro', 'PLAYER_SHIRT_red', 'PLAYER_LEGS_purple', 'PLAYER_WEAPON_blue']
 const player: RpgPlayerHooks = {
     props: {
         graphics: String
     },
     onConnected(player: RpgPlayer) {
-        player.name = 'AsoStrife'
+        player.name = ''
         player.setComponentsTop(Components.text('{name}'))
         player.setGraphic(graphics)
     },

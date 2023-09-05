@@ -1,0 +1,76 @@
+[
+    {
+        "text": "Sex",
+        "value": "sex",
+        "sub": [
+            {
+                "text": "Male",
+                "value": "PLAYER_BODY_male"
+            },
+            {
+                "text": "Male Muscolar",
+                "value": "PLAYER_BODY_muscolar"
+            },
+            {
+                "text": "Female",
+                "value": "PLAYER_BODY_female"
+            }
+        ]
+    },
+    {
+        "text": "Hair",
+        "value": "hair", 
+        "sub": [
+            {
+                "text": "Afro",
+                "value": "PLAYER_HAIR_afro"
+            },
+            {
+                "text": "Dread",
+                "value": "PLAYER_HAIR_dread"
+            }
+        ]
+    },
+    {
+        "text": "Shirt",
+        "value": "shirt",
+        "sub": [
+            {
+                "text": "Blue",
+                "value": "PLAYER_SHIRT_blue"
+            },
+            {
+                "text": "Red",
+                "value": "PLAYER_SHIRT_red"
+            }
+        ]
+    },
+    {
+        "text": "Legs",
+        "value": "legs",
+        "sub": [
+            {
+                "text": "Purple",
+                "value": "PLAYER_LEGS_purple"
+            },
+            {
+                "text": "Yellow",
+                "value": "PLAYER_LEGS_yellow"
+            }
+        ]
+    },
+    {
+        "text": "Weapon",
+        "value": "weapon",
+        "sub": [
+            {
+                "text": "Blue",
+                "value": "PLAYER_WEAPON_blue"
+            },
+            {
+                "text": "Red",
+                "value": "PLAYER_WEAPON_red"
+            }
+        ]
+    }
+]

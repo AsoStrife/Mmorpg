@@ -2,7 +2,7 @@ import { Components, EventData, Move, Presets, RpgEvent, Speed } from '@rpgjs/se
 
 // @ts-ignore
 @EventData({
-    name: 'Gaggio',
+    name: 'NPC_gaggio',
     hitbox: {
         width: 32,
         height: 48
