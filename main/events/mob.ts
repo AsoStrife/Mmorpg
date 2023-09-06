@@ -2,16 +2,15 @@ import { Components, EventData, Move, Presets, RpgEvent, Speed } from '@rpgjs/se
 
 // @ts-ignore
 @EventData({
-    name: 'NPC_gaggio',
+    name: 'Gaggio',
     hitbox: {
         width: 32,
         height: 48
     }
 })
 export default class Mob extends RpgEvent {
-    props: {
-        type: 'mob',
-    }
+    type = 'mob';
+
     onInit() {
         this.through = false;
         this.throughOtherPlayer = false;
@@ -35,7 +34,7 @@ export default class Mob extends RpgEvent {
             }
         }
 
-        this.setGraphic(['gaggio'])
+        this.setGraphic(['NPC_gaggio'])
         this.speed = Speed.Slow
         this.infiniteMoveRoute([
             Move.tileRandom()

@@ -15,15 +15,16 @@
 </template>
 
 <script lang="ts">
-import { LayoutObject } from '@rpgjs/types';
+import { LayoutObject } from '@rpgjs/types'
 import { Control } from '@rpgjs/client'
+import Graphics from '../model/graphics'
 
 export default {
     name: 'sprite', 
     inject: ['rpgEngine', 'rpgStage', 'rpgKeypress', 'rpgGuiClose', 'rpgCurrentPlayer', 'rpgResource', 'rpgGui', 'rpgGuiInteraction'],
     data() {
         return {
-            graphics: [] as string[],
+            graphics: [] as Graphics[],
             spritesheets: [] as string[],
             isCategoryActive: true,
             categoryIndex: 1,
