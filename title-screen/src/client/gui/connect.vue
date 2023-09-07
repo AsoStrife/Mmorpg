@@ -1,14 +1,26 @@
 <template>
-    <rpg-window width="300px" position="bottom-middle" v-if="page == 'login'">
-        <p>Connect to server with your account</p>
-        <form @submit.prevent="login">
-            <input type="text" placeholder="Username" v-model="user.nickname">
-            <button class="btn-success login">Login</button>
-        </form>
-    </rpg-window>
+    <div class="container">
+        <div class="row justify-content-center fixed-bottom">
+            <h1>Kasteddu</h1>
+            <div class="col-4 login">
+                <p>Scegli uno username per iniziare a giocare</p>
+                <form @submit.prevent="login">
+                    <div class="mb-3">
+                        <input type="text" placeholder="Username" class="form-control username-input"
+                            v-model="user.nickname">
+                    </div>
+                    <div class="mb-3">
+                        <button class="btn btn-outline-info float-end">Accedi</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
 </template>
 
 <script>
+import 'bootstrap/dist/css/bootstrap.css'
 
 export default {
     name: 'rpg-login',
@@ -67,30 +79,39 @@ export default {
 </script>
 
 <style scoped lang="scss">
-form {
+$title-screen-window-bg: #07111c;
+$title-screen-window-border: 3px solid #0dcaf0;
+
+h1 {
+    font-size: 6rem; 
+    color: #07111c;
     text-align: center;
+    text-transform: uppercase; 
+    letter-spacing: 4px; 
+    text-shadow: 2px 2px #0dcaf0;
 }
-
-p {
-    margin-bottom: 25px;
+.row {
+    margin-bottom: 5%;
 }
-
-button {
-    margin-top: 20px;
-}
-
-input {
-    width: 85%;
-}
-
-select {
-    width: 85%;
-    height: 30px;
-    padding: 0; 
-    margin: 0;
-}
-
 .login {
-    margin-right: 10px;
+    background-color: $title-screen-window-bg;
+    border: $title-screen-window-border;
+    color: white;
+    margin: auto auto;
+    padding: 15px;
+    align-self: flex-end;
+    opacity: 0.9;
 }
+
+.username-input {
+    background-color: #07111c;
+    color: white;
+    border: 1px solid #0dcaf0;
+}
+
+.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+}
+
+
 </style>

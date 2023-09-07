@@ -1,7 +1,7 @@
 import { RpgPlayer, RpgPlayerHooks, Control, Components } from '@rpgjs/server'
 
 // const graphics = ['pale-green-body', 'pale-green-head', 'pale-green-wings', 'pale-green-wings-fg', 'dark-grey-coat', 'boots-black', 'hood-black']
-const graphics = ['PLAYER_BODY_male', 'PLAYER_HEAD_male', 'PLAYER_HAIR_afro', 'PLAYER_SHIRT_red', 'PLAYER_LEGS_purple', 'PLAYER_WEAPON_blue']
+const graphics = ['PLAYER_BODY_male', 'PLAYER_HEAD_male']
 
 const player: RpgPlayerHooks = {
     props: {
@@ -15,8 +15,6 @@ const player: RpgPlayerHooks = {
     onInput(player: RpgPlayer, { input }) {
         if (input == Control.Back) {
             // player.callMainMenu()
-
-            
             player.gui('sprite').open()
         }
 
@@ -41,19 +39,24 @@ const player: RpgPlayerHooks = {
             player.showAnimation(graphics, 'skill', true)
         }
 
-        const gui = player.gui('potions')
-        gui.on('useItem', (id) => {
-            try {
-                player.useItem(id)
-            }
-            catch (err) {
-                console.log(err)
-            }
+        // const gui = player.gui('potions')
+        // gui.on('useItem', (id) => {
+        //     try {
+        //         player.useItem(id)
+        //     }
+        //     catch (err) {
+        //         console.log(err)
+        //     }
+        // })
+
+        const sprite = player.gui('sprite')
+        sprite.on('changeGraphics', (data) => {
+            player.setGraphic(data)
         })
 
     },
     async onJoinMap(player: RpgPlayer) {
-        player.gui('hud-2').open()
+        player.gui('hud').open()
     }
 }
 

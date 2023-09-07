@@ -21,7 +21,7 @@ import Graphics from '../model/graphics'
 
 export default {
     name: 'sprite', 
-    inject: ['rpgEngine', 'rpgStage', 'rpgKeypress', 'rpgGuiClose', 'rpgCurrentPlayer', 'rpgResource', 'rpgGui', 'rpgGuiInteraction'],
+    inject: ['rpgEngine', 'rpgStage', 'rpgKeypress', 'rpgGuiClose', 'rpgCurrentPlayer', 'rpgResource', 'rpgGui', 'rpgGuiInteraction', 'rpgSocket'],
     data() {
         return {
             graphics: [] as Graphics[],
@@ -30,8 +30,8 @@ export default {
             categoryIndex: 1,
             choices: [
                 {
-                    "text": "Sex",
-                    "value": "sex",
+                    "text": "Body",
+                    "value": "body",
                     "sub": [
                         {
                             "text": "Male",
@@ -44,6 +44,20 @@ export default {
                         {
                             "text": "Female",
                             "value": "PLAYER_BODY_female"
+                        }
+                    ]
+                },
+                {
+                    "text": "Head",
+                    "value": "head",
+                    "sub": [
+                        {
+                            "text": "Male",
+                            "value": "PLAYER_HEAD_male"
+                        },
+                        {
+                            "text": "Female",
+                            "value": "PLAYER_HEAD_female"
                         }
                     ]
                 },
@@ -116,7 +130,35 @@ export default {
         },
         changeItem(index) {
             // TODO change item based on category index (this.categoryIndex)
-            
+            const graphic = this.choices_2[index].value
+
+            switch(this.choices[this.categoryIndex].value){
+                case 'body': 
+                    this.graphics.setBody(graphic)
+                break;
+                case 'head': 
+                    this.graphics.setHead(graphic)
+                break;
+                case 'hair': 
+                    this.graphics.setHair(graphic)
+                break;
+                case 'shirt': 
+                    this.graphics.setShirt(graphic)
+                break;
+                case 'legs': 
+                    this.graphics.setLegs(graphic)
+                break;
+                case 'weapon': 
+                    this.graphics.setWeapon(graphic)
+                break;
+            }
+
+            this.rpgSocket().emit('gui.interaction', {
+                guiId: 'sprite',
+                name: 'changeGraphics',
+                data: this.graphics.getAttributes()
+            })
+
         },
         mapSpritesheets(graphics: string[]): string[] {
             return graphics.map(
@@ -147,6 +189,7 @@ export default {
         }
     },
     mounted() {
+        this.graphics = new Graphics()
         if (this.rpgGui.exists('rpg-controls')) 
             this.rpgGui.hide('rpg-controls') 
         
@@ -157,7 +200,11 @@ export default {
                 if (!obj || !obj.object) 
                     return
 
-                this.spritesheets = this.mapSpritesheets(this.mapGraphics(obj.object.layout))
+                    this.graphics.import(this.mapGraphics(obj.object.layout))
+
+                    this.spritesheets = this.mapSpritesheets(this.mapGraphics(obj.object.layout))
+
+                    
             })
             
             this.obsKeyPress = this.rpgKeypress.subscribe(({ control }) => {
@@ -198,25 +245,25 @@ export default {
 }
 
 .spritesheet-container {
-//   position: relative;
-//   width: 300px;
-//   height: 300px; 
-  width: 55%; 
-  height: 100%; 
-  border:1px solid #FFF; 
-  float: right; 
-  margin-left: 1%;
+    position: relative;
+    //   width: 300px;
+    //   height: 300px; 
+    width: 55%; 
+    height: 100%; 
+    border:1px solid #FFF; 
+    float: right; 
+    margin-left: 1%;
 }
 
 .spritesheet-preview {
-  position: absolute;
-  width: 64px;
+    position: absolute;
+    width: 64px;
     height: 64px;
-  left: 45%;
-    top: 25%;
-  background-position: 0px 64px;
-  
-  transform: scale(5);
+    left: 65%;
+    top: 30%;
+    background-position: 0px 64px;
+
+    transform: scale(5);
 }
 
 

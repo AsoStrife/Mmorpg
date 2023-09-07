@@ -1,5 +1,18 @@
 <template>
-    <div class="hud">
+    <div class="container">
+        <div class="row justify-content-end fixed-bottom">
+            <div class="col-4 hud mr-1">
+                <name></name>
+            </div>
+        </div>
+        <div class="row">
+            <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar" style="width: 0%"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="hud">
         <div class="name-container">
             <name></name>
         </div>
@@ -7,16 +20,17 @@
         <div class="life-container">
             <life></life>
         </div>
-    </div>
+    </div> -->
 
 </template>
 
 <script>
 import life from './life.vue'
 import name from './name.vue'
+import 'bootstrap/dist/css/bootstrap.css'
 
 export default {
-    name: 'hud-2',
+    name: 'hud',
     data() {
         return {
             
@@ -25,18 +39,13 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+
+$title-screen-window-bg: #07111c;
+$title-screen-window-border: 2px solid #0dcaf0;
 .hud {
-    position: absolute; 
-    width: 350px; 
-    height: 150px;
-    top: 0px; 
-    left: 0px; 
-    background-image: url('./imgs/hud-v2.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    font-family: 'SpaceMission';
-    /* border: 2px solid #fff; */
+    background-color: $title-screen-window-bg;
+    border: $title-screen-window-border;
     color: white;
     
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.8" tiledversion="1.8.2" name="[A]Water_pipo" tilewidth="32" tileheight="32" tilecount="3072" columns="64">
+<tileset version="1.10" tiledversion="1.10.2" name="[A]Water_pipo" tilewidth="32" tileheight="32" tilecount="3072" columns="64">
  <image source="[A]Water_pipo.png" width="2048" height="1536"/>
  <tile id="0">
   <properties>
@@ -2955,6 +2955,14 @@
   <properties>
    <property name="collision" type="bool" value="true"/>
   </properties>
+  <animation>
+   <frame tileid="470" duration="100"/>
+   <frame tileid="478" duration="100"/>
+   <frame tileid="486" duration="100"/>
+   <frame tileid="494" duration="100"/>
+   <frame tileid="502" duration="100"/>
+   <frame tileid="510" duration="100"/>
+  </animation>
  </tile>
  <tile id="463">
   <properties>

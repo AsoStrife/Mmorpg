@@ -4,19 +4,19 @@ export default class Graphics {
     private head: string
     private hair: string
     private shirt: string
-    private pants: string
+    private legs: string
     private weapon: string
 
     constructor() {
     }
 
-    setAll(
+    public setAll(
         gender: string,
         body: string,
         head: string,
         hair: string,
         shirt: string,
-        pants: string,
+        legs: string,
         weapon: string
     ) {
         this.gender = gender
@@ -24,39 +24,75 @@ export default class Graphics {
         this.head = head
         this.hair = hair
         this.shirt = shirt
-        this.pants = pants
+        this.legs = legs
         this.weapon = weapon
     }
 
-    setGender(gender: string) {
+    public setGender(gender: string) {
         this.gender = gender
     }
 
-    setBody(body: string) {
+    public setBody(body: string) {
         this.body = body
     }
 
-    setHead(head: string) {
+    public setHead(head: string) {
         this.head = head
     }
 
-    setHair(hair: string) {
+    public setHair(hair: string) {
         this.hair = hair
     }
 
-    setShirt(shirt: string) {
+    public setShirt(shirt: string) {
         this.shirt = shirt
     }
 
-    setPants(pants: string) {
-        this.pants = pants
+    public setLegs(legs: string) {
+        this.legs = legs
     }
 
-    setWeapon(weapon: string) {
+    public setWeapon(weapon: string) {
         this.weapon = weapon
     }
 
-    getAttributesArray(): string[] {
-        return [this.gender, this.body, this.head, this.hair, this.shirt, this.pants, this.weapon]
+    public getAttributes(): string[] {
+        let attributes = [this.gender, this.body, this.head, this.hair, this.shirt, this.legs, this.weapon]
+
+        attributes = attributes.filter((e) => e !== undefined)
+        return attributes
+    }
+
+    public import(arr: string[]) {
+        arr = arr.reduce((acc, row) => acc.concat(row), [])
+
+        arr.forEach(graphic => {
+            this.switcher(graphic)
+        })
+    }
+
+    public switcher(graphic: string) {
+        switch (true) {
+            case graphic.includes("BODY"):
+                this.setBody(graphic)
+                break;
+            case graphic.includes("HEAD"):
+                this.setHead(graphic)
+                break;
+            case graphic.includes("HAIR"):
+                this.setHair(graphic)
+                break;
+            case graphic.includes("SHIRT"):
+                this.setShirt(graphic)
+                break;
+            case graphic.includes("LEGS"):
+                this.setLegs(graphic)
+                break;
+            case graphic.includes("WEAPON"):
+                this.setWeapon(graphic)
+                break;
+            default:
+                break;
+        }
     }
 }

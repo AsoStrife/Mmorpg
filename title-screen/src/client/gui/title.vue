@@ -1,6 +1,6 @@
 <template>
     <div class="background">
-        <div class="title" v-if="step == 'title'">
+        <div class="title">
             <h1>{{ title }}</h1>
         </div>
         <rpg-login class="margin-bottom"></rpg-login>
@@ -22,22 +22,8 @@ export default {
         }
     },
     mounted() {
-        const { titleScreen } = this.rpgEngine.globalConfig
-        if (titleScreen) {
-            this.title = titleScreen.title
-            if (titleScreen.music) {
-                this.rpgSound.get(titleScreen.music).play()
-            }
-        }
-        this.obsKeyPress = this.rpgKeypress.subscribe(({ control }) => {
-            if (!control) return
-            if (control.actionName == Control.Back) {
-                this.step = 'title'
-            }
-        })
     },
     unmounted() {
-        this.obsKeyPress.unsubscribe()
     },
     methods: {
     },
@@ -48,6 +34,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+$title-screen-window-bg: #07111c;
+$title-screen-window-border: 3px solid #6394ad;
+
 $title-screen-font-size: 40px !default;
 $title-screen-font-color: white !default;
 $title-screen-font-border-color: black !default;
