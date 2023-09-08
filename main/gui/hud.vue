@@ -1,32 +1,39 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-end fixed-bottom">
-            <div class="col-4 hud mr-1">
-                <name></name>
-            </div>
-        </div>
-        <div class="row">
-            <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-                <div class="progress-bar" style="width: 0%"></div>
-            </div>
-        </div>
-    </div>
+    <div class="container-fluid">
+        <div class="row justify-content-start fixed-top">
+            
+            <div class="row">
+                <div class="col-xs-5 col-md-4 col-lg-3 hud hud-padding mr-1">
 
-    <!-- <div class="hud">
-        <div class="name-container">
-            <name></name>
-        </div>
-        
-        <div class="life-container">
-            <life></life>
-        </div>
-    </div> -->
+                    <div class="row">
+                        <div class="col-12">
+                            <name></name>
+                        </div>
+                    </div> <!-- / .row -->
+                    
+                    <div class="row">
+                        <div class="col-12">
+                            <life></life>
+                        </div>
+                    </div> <!-- / .row -->
 
+                </div>
+            </div> <!-- / .row -->
+
+            <div class="row">
+                <div class="col-xs-5 col-md-5 col-lg-3 hud">
+                    <health></health>
+                </div>
+            </div> <!-- / .row -->
+        </div> <!-- / .row -->
+    </div> <!-- / .container -->
 </template>
 
 <script>
 import life from './life.vue'
 import name from './name.vue'
+import health from './health.vue'
+
 import 'bootstrap/dist/css/bootstrap.css'
 
 export default {
@@ -35,6 +42,10 @@ export default {
         return {
             
         }
+    },
+    components: {
+        life, 
+        name
     }
 }
 </script>
@@ -47,26 +58,14 @@ $title-screen-window-border: 2px solid #0dcaf0;
     background-color: $title-screen-window-bg;
     border: $title-screen-window-border;
     color: white;
-    
+    margin-top: 5px;
+    margin-left: 20px;
+    opacity: 0.8;
+    font-size: 13px;
 }
 
-.name-container {
-    width: 180px;
-    margin-top: 25px; 
-    margin-left: 50px;
-    margin-right: auto;
-    margin-bottom:0px;
-    /* transform-origin: 34% 50%;
-    transform: rotateY(5deg) skewX(-15deg); */
+.hud-padding {
+    padding-top: 7px;
+    padding-bottom: 7px;
 }
-
-.life-container {
-    width: 180px;
-    margin-top: 0px; 
-    margin-left: 50px;
-    margin-right: auto;
-    /* transform-origin: 34% 50%;
-    transform: rotateY(5deg) skewX(-15deg); */
-}
-
 </style>

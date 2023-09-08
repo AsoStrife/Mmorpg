@@ -7,7 +7,7 @@
                 <form @submit.prevent="login">
                     <div class="mb-3">
                         <input type="text" placeholder="Username" class="form-control username-input"
-                            v-model="user.nickname">
+                            v-model="user.nickname" :maxlength="maxTextLength">
                     </div>
                     <div class="mb-3">
                         <button class="btn btn-outline-info float-end">Accedi</button>
@@ -30,14 +30,11 @@ export default {
     data() {
         return {
             page: 'login',
-            choices: [ 
-                { text: 'One', value: 1 }, 
-                { text: 'Two', value: 2 } 
-            ],
             user: {
                 nickname: '',
                 sex: ''
-            }
+            },
+            maxTextLength: 12
 
         }
     },

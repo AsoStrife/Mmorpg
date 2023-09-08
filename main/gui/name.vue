@@ -1,6 +1,6 @@
 <template>
     <div v-bind:class="getClass()">
-        <h1> {{ name }} </h1>
+        <h1>{{ name }}</h1>
     </div>
 </template>
 
@@ -46,5 +46,6 @@ export default {
         color: white;
         font-size: 13px;
         margin: 3px;
+        font-weight: 700;
     }
 </style>

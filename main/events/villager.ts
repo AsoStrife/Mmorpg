@@ -1,6 +1,6 @@
 import { RpgEvent, EventData, RpgPlayer, EventMode } from '@rpgjs/server'
-import Pozione from '../database/Pozione'
-import Granpozione from '../database/Granpozione'
+import Panino from '../database/Panino'
+import Birra from '../database/Birra'
 import { PlayerType } from '@rpgjs/types'
 
 import { Components, EventData, Move, Presets, RpgEvent, Speed } from '@rpgjs/server';
@@ -34,12 +34,13 @@ export default class VillagerEvent extends RpgEvent {
 
         player.gold += 10000
         
-        // player.hp = 100
+        player.hp = 100
+        player.sp = 100
 
-        player.addItem('96ab6ba0-3c7b-11ee-be56-0242ac120002', 10) // Pozione
-        player.addItem('8a02eea8-c9f3-4915-b105-f2bee51b884a', 50) // Etere
+        player.addItem('96ab6ba0-3c7b-11ee-be56-0242ac120002', 10) // Panino
+        player.addItem('8a02eea8-c9f3-4915-b105-f2bee51b884a', 50) // Birra
 
-        player.callShop([Pozione])
+        // player.callShop([Panino, Birra])
 
         // player.name = 'AsoStrife22'
         // player.setGraphic(['nenna'])

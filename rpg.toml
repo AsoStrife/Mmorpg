@@ -55,3 +55,15 @@ spritesheetDirectories= [
     repeat = true
     bind = "k"
     delay = { duration = 200 }
+
+[inputs.potion]
+    name = "potion"
+    repeat = true
+    bind = "p"
+    delay = { duration = 200 }
+
+[inputs.ether]
+    name = "ether"
+    repeat = true
+    bind = "b"
+    delay = { duration = 200 }
