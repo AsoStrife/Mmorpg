@@ -6,7 +6,7 @@
             <img src="./imgs/potion.jpg" class="img-fluid col-5" />
             <span class="align-bottom m-txt"><strong>P</strong></span>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-3 item-col">
+        <div class="col-xs-6 col-sm-6 col-md-3 item-col" :class="{ 'hover-class': isBirraHover }">
             <span class="align-top m-txt">{{this.birra?.nb ? this.birra?.nb : 0 }}</span>
             <img src="./imgs/ether.jpg" class="img-fluid col-5" />
             <span class="align-bottom m-txt"><strong>B</strong></span>
@@ -37,7 +37,8 @@ export default {
             items: [],
             panino: {},
             isPaninoHover: false, 
-            birra: {}
+            birra: {},
+            isBirraHover: false
             
         }
     },
@@ -46,6 +47,8 @@ export default {
         this.obsCurrentPlayer = this.rpgCurrentPlayer
             .subscribe(( { object } ) => {
                 this.items = Object.values(object.items || [])
+                this.panino = {}
+                this.birra = {}
                 this.panino = this.items.filter(i => i.item.id == '96ab6ba0-3c7b-11ee-be56-0242ac120002')[0]
                 this.birra = this.items.filter(i => i.item.id == '8a02eea8-c9f3-4915-b105-f2bee51b884a')[0]
             })
@@ -56,14 +59,20 @@ export default {
             if (control.actionName == "potion") {
                 this.useP()
                 this.isPaninoHover = true
-                
+
                 setTimeout(() => {
                     this.isPaninoHover = false;
                 }, 200)
             }
 
-            if (control.actionName == "b") {
+            if (control.actionName == "ether") {
                 this.useB()
+
+                this.isBirraHover = true
+                
+                setTimeout(() => {
+                    this.isBirraHover = false;
+                }, 200)
             }
         
         })
@@ -87,7 +96,7 @@ export default {
             this.rpgSocket().emit('gui.interaction', {
                 guiId: 'health',
                 name: 'useItem',
-                data: '8a02eea8-c9f3-4915-b105-f2bee51b884'
+                data: '8a02eea8-c9f3-4915-b105-f2bee51b884a'
             })
             
         }

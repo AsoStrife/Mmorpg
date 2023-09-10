@@ -10,7 +10,15 @@ import { RpgPlayer } from '@rpgjs/server'
 })
 
 export default class Birra {
+    onAdd(player: RpgPlayer) {
+        const item = player.items.filter(i => i.item.id == '8a02eea8-c9f3-4915-b105-f2bee51b884a')[0]
+        item.nb = item?.nb > 99 ? 99 : item?.nb
+    }
+
     onUse(player: RpgPlayer) {
-        player.hp = ((player.sp + 50) >= player.param.maxSp) ? player.param.maxSp : player.sp + 50
+        if(player.sp != player.param.maxSp)
+            player.sp = ((player.sp + 50) >= player.param.maxSp) ? player.param.maxSp : player.sp + 50
+        else
+            player.addItem('8a02eea8-c9f3-4915-b105-f2bee51b884a', 1)
     }
 }

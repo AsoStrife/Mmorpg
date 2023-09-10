@@ -21,7 +21,7 @@
             </div> <!-- / .row -->
 
             <div class="row">
-                <div class="col-xs-5 col-md-5 col-lg-3 hud">
+                <div class="col-xs-5 col-md-4 col-lg-3 hud">
                     <health></health>
                 </div>
             </div> <!-- / .row -->

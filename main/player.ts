@@ -39,18 +39,19 @@ const player: RpgPlayerHooks = {
             player.showAnimation(graphics, 'skill', true)
         }
 
-        // const gui = player.gui('potions')
-        // gui.on('useItem', (id) => {
-        //     try {
-        //         player.useItem(id)
-        //     }
-        //     catch (err) {
-        //         console.log(err)
-        //     }
-        // })
+        const healthGui = player.gui('health')
+        healthGui.on('useItem', (id) => {
+            try {
+                player.useItem(id)
+            }
+            catch (err) {
+                console.log(err)
+            }
+        })
 
-        const sprite = player.gui('sprite')
-        sprite.on('changeGraphics', (data) => {
+        const spriteGui = player.gui('sprite')
+
+        spriteGui.on('changeGraphics', (data) => {
             player.setGraphic(data)
         })
 

@@ -1,0 +1,19 @@
+$window-background: #07111c;
+$window-border: 2px solid #0dcaf0;
+$window-border-radius: 0px;
+$window-arrow-color: white;
+$window-font-size: 25px;
+$window-font-color: white;
+$window-font-family: 'Arial';
+
+$cursor-background: #7782ab;
+$cursor-border: 1px solid #9db0c6;
+
+$hero-face: url('@/config/client/assets/face.png');
+
+@mixin window-content {
+    // add extra style stylesheet
+}
+
+$title-screen-window-bg: #07111c;
+$title-screen-window-border: 2px solid #0dcaf0;

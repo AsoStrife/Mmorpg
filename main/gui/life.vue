@@ -1,7 +1,7 @@
 <template>
         <div class="row">
             <div class="col-sm-12 col-md-12 col-xl-3">
-                HP: {{ hp }} / {{ maxHp }}
+                <span class="life-txt">HP: {{ hp }} / {{ maxHp }}</span>
             </div>
         
             <div class="col-sm-12 col-md-12 col-xl-9">
@@ -13,7 +13,7 @@
         
         <div class="row">
             <div class="col-sm-12 col-md-12 col-xl-3">
-                MP: {{ mp }} / {{ maxMP }}
+                <span class="life-txt">MP: {{ mp }} / {{ maxMP}}</span>
             </div>
 
             <div class="col-sm-12 col-md-12 col-xl-9">
@@ -97,5 +97,9 @@ export default {
 }
 .inner-bar.mp {
     background: #39596e;
+}
+
+.life-txt {
+    font-size: 10px;
 }
 </style>
