@@ -16,8 +16,8 @@ export default class Mob extends RpgEvent {
         this.throughOtherPlayer = false;
 
         this.addParameter(Presets.MAXHP, {
-            start: 100,
-            end: 100,
+            start: 10,
+            end: 10,
         });
         this.recovery({ hp: 1 });
 

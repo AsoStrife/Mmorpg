@@ -1,6 +1,7 @@
 {
     "maps": [
         {
+            "id": "simplemap",
             "fileName": "maps/simplemap.tmx",
             "height": 960,
             "width": 1600,
