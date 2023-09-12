@@ -8,7 +8,7 @@ import { Components, EventData, Move, Presets, RpgEvent, Speed } from '@rpgjs/se
         height: 48
     }
 })
-export default class Mob extends RpgEvent {
+export default class Gaggio extends RpgEvent {
     type = 'mob';
 
     onInit() {

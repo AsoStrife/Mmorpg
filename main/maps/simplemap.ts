@@ -1,11 +1,11 @@
 import { MapData, RpgMap, RpgPlayer } from '@rpgjs/server'
-import Mob  from '../events/mob'
+import Gaggio  from '../events/gaggio'
 import { Spawner } from '../utils/Spawner'
 import { getMobsOnMapCount, getMobsOnMap } from '../utils/utils'
 
 const MobSpawnList: NPC = {
-    'mob': {
-        class: Mob,
+    'Gaggio': {
+        class: Gaggio,
         hitbox: {
             width: 64,
             height: 64,
@@ -19,23 +19,15 @@ const MobSpawnList: NPC = {
 })
 
 export default class simplemap extends RpgMap {
-    // When the player enters the map
-    onEnter(player: RpgPlayer) {
-        console.log("onEnter")
-    }
+
     
     onLoad() {
-        console.log("Onload")
         const spawner = new Spawner(this, MobSpawnList);
 
         setInterval(() => {
             const mobs = getMobsOnMapCount(this)
             spawner.populate(mobs)
-
-            console.log("Spawno un mostro")
         }, 6 * 1000)
-
-        spawner.populate({});
     }
 
     // When the player leaves the map

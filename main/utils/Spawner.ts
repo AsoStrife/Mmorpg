@@ -122,7 +122,7 @@ export class Spawner {
         const { npc, quantity } = spawn;
         const quantityToGenerate = quantity - existingQuantity;
 
-        console.log('populate missing', npc, quantityToGenerate);
+        // console.log('populate missing', npc, quantityToGenerate);
 
         for (let i = 0; i < quantityToGenerate;) {
             const { x, y } = this.getTileMiddle({
