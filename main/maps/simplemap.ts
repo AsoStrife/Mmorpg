@@ -1,5 +1,5 @@
 import { MapData, RpgMap, RpgPlayer } from '@rpgjs/server'
-import Gaggio  from '../events/gaggio'
+import Gaggio  from '../events/mob/gaggio'
 import { Spawner } from '../utils/Spawner'
 import { getMobsOnMapCount, getMobsOnMap } from '../utils/utils'
 
